@@ -49,7 +49,7 @@
   html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
-    background: #fff;
+    background: #FBFBFB;
     background-image: none;
     color: var(--text);
     font-family: var(--sans);
@@ -78,8 +78,8 @@
   /* two columns */
   .layout { display: grid; grid-template-columns: 35% minmax(0,1fr); gap: clamp(20px,3vw,40px); align-items: start; margin-top: clamp(8px,2vw,18px); }
   .widget-col { width: 100%; max-width: 960px; margin: 0 auto; }
-  /* override .card's gray so the transparent widget sits on white */
-  .card.widget-col, .card.widget-col .card-tab { background: #fff; }
+  /* override .card's gray so the transparent widget sits on #FBFBFB */
+  .card.widget-col, .card.widget-col .card-tab { background: #FBFBFB; }
 
   .card { background: var(--bg-soft); border: 1px solid var(--rule-soft); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
   .card-tab { display: flex; align-items: center; gap: 9px; padding: 13px 20px; border-bottom: 1px solid var(--rule-soft); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-soft); background: rgba(255,255,255,.5); }
