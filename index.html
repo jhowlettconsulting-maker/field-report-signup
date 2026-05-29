@@ -103,7 +103,7 @@
     border-bottom-color: rgba(255,255,255,.12);
   }
 
-  iframe.widget { display: block; width: 100%; height: 2200px; border: 0; background: #fff; }
+  iframe.widget { display: block; width: 100%; height: 1250px; border: 0; background: #fff; }
 
   footer { margin-top: clamp(36px,5vw,64px); padding-top: 20px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--text-soft); }
   footer .mark { font-weight: 700; color: var(--ink); letter-spacing: .12em; text-transform: uppercase; font-size: 12px; }
@@ -165,21 +165,5 @@
 
   <!-- ============ HubSpot form embed (Hub 244525624 · form eb3c3c36… · na2) ============ -->
   <script src="https://js-na2.hsforms.net/forms/embed/244525624.js" defer></script>
-
-  <!-- Auto-size the diagnostic widget to its content height (if it posts its height) -->
-  <script>
-    (function () {
-      var frame = document.getElementById('pm-widget');
-      if (!frame) return;
-      window.addEventListener('message', function (e) {
-        if (e.origin !== 'https://ssi-pm-widget-new.vercel.app') return;
-        var h = null, d = e.data;
-        if (typeof d === 'number') h = d;
-        else if (d && typeof d === 'object') h = d.height || d.scrollHeight || (d.payload && d.payload.height);
-        h = parseInt(h, 10);
-        if (h && h > 200) frame.style.height = h + 'px';
-      });
-    })();
-  </script>
 </body>
 </html>
