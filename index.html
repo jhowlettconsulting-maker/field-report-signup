@@ -90,8 +90,9 @@
   .form-intro .s { display: block; }
   .form-intro .s + .s { margin-top: 1em; }
   .form-intro .ln { display: inline-block; }
-  /* HubSpot form spans the full intro width and sits flush under the intro */
-  .form-card .hs-form-frame { width: 100%; margin-top: 4px; }
+  /* Form iframe spans the full intro width and sits flush under the intro */
+  .form-card .form-embed { width: 100%; max-width: 970px; min-width: 320px; margin: 4px auto 0; }
+  .form-card .form-embed iframe { width: 100%; min-width: 320px; min-height: 1250px; border: 0; display: block; background: transparent; }
 
   /* ===== Left form panel — matches the widget's deep-teal "blue box" (#0C3442) ===== */
   .form-card { background: var(--form-blue); border-color: rgba(255,255,255,.10); }
@@ -138,8 +139,14 @@
         <div class="card-tab"><span class="dot"></span>Get the Field Studies</div>
         <div class="form-body">
           <p class="form-intro"><span class="s"><span class="ln">Every building hits a <strong>flex point</strong> — the moment</span> <span class="ln">a decision can make money or prevent risk.</span></span><span class="s"><span class="ln">Each Field Study breaks down one: whether the call</span> <span class="ln">got made, what happened, and what it cost or saved.</span></span></p>
-          <!-- HubSpot modern form embed (form eb3c3c36… · na2) — styled in HubSpot -->
-          <div class="hs-form-frame" data-region="na2" data-form-id="eb3c3c36-f2ce-4825-9ced-6ed81ee95284" data-portal-id="244525624"></div>
+          <!-- Self-hosted HubSpot form page, iframed -->
+          <div class="form-embed">
+            <iframe
+              src="https://ssi-pm-widget-new.vercel.app/pm-widget-hubspot-form.html"
+              title="PM Workflow Diagnostic"
+              loading="lazy"
+            ></iframe>
+          </div>
         </div>
       </div>
 
@@ -162,7 +169,5 @@
 
   </div>
 
-  <!-- ============ HubSpot form embed (Hub 244525624 · form eb3c3c36… · na2) ============ -->
-  <script src="https://js-na2.hsforms.net/forms/embed/244525624.js" defer></script>
 </body>
 </html>
