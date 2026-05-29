@@ -85,13 +85,6 @@
 
   .form-card .form-body { padding: clamp(22px,3vw,34px); background: transparent; }
 
-  /* form copy & controls sized down 4px; content nudged up 35px */
-  #hs-form-target { margin-top: -35px; }
-  #hs-form-target iframe { background: transparent !important; }
-  #hs-form-target h1, #hs-form-target h2, #hs-form-target h3,
-  #hs-form-target .hs-richtext h1, #hs-form-target .hs-richtext h2, #hs-form-target .hs-richtext h3 { font-size: 22px; }
-  #hs-form-target .hs-richtext, #hs-form-target .hs-richtext p, #hs-form-target .hs-richtext span { font-size: 13px; }
-
   /* ===== Left form panel — matches the widget's deep-teal "blue box" (#0C3442) ===== */
   .form-card { background: var(--form-blue); border-color: rgba(255,255,255,.10); }
   .form-card .card-tab {
@@ -99,51 +92,8 @@
     color: rgba(255,255,255,.70);
     border-bottom-color: rgba(255,255,255,.12);
   }
-
-  /* HubSpot form — inverted (light) text on the dark panel */
-  #hs-form-target,
-  #hs-form-target h1, #hs-form-target h2, #hs-form-target h3, #hs-form-target h4,
-  #hs-form-target p, #hs-form-target span, #hs-form-target label,
-  #hs-form-target legend, #hs-form-target .hs-richtext,
-  #hs-form-target .hs-richtext * { color: #fff; }
-  #hs-form-target .hs-richtext { color: rgba(255,255,255,.82); }
-  #hs-form-target .hs-richtext strong { color: #fff; }
-  #hs-form-target label { font-weight: 600; font-size: 12px; }
-  #hs-form-target .hs-form-required { color: var(--mint); }
-  #hs-form-target .hs-form-field { margin-bottom: 16px; }
-  #hs-form-target .hs-input {
-    width: 100%;
-    background: rgba(255,255,255,.07);
-    border: 1px solid rgba(255,255,255,.22);
-    color: #fff;
-    border-radius: 10px;
-    padding: 12px 14px;
-    font-family: var(--sans);
-    font-size: 11px;
-  }
-  #hs-form-target select.hs-input { background-color: var(--form-blue); }
-  #hs-form-target .hs-input::placeholder { color: rgba(255,255,255,.45); }
-  #hs-form-target .hs-input:focus {
-    outline: none;
-    border-color: var(--mint);
-    box-shadow: 0 0 0 3px rgba(127,224,176,.22);
-  }
-  #hs-form-target .hs-button,
-  #hs-form-target input[type="submit"] {
-    background: var(--mint);
-    color: var(--ink);
-    border: 0;
-    border-radius: 12px;
-    padding: 13px 24px;
-    font-weight: 700;
-    font-size: 11px;
-    cursor: pointer;
-    transition: filter .15s, transform .15s;
-  }
-  #hs-form-target .hs-button:hover,
-  #hs-form-target input[type="submit"]:hover { filter: brightness(1.05); transform: translateY(-1px); }
-  #hs-form-target .hs-error-msg,
-  #hs-form-target .hs-error-msgs label { color: #ffb3b3; }
+  /* form is styled inside HubSpot; just nudge it up per request */
+  .hs-form-frame { margin-top: -35px; }
 
   iframe.widget { display: block; width: 100%; height: 900px; border: 0; background: var(--bg-soft); }
 
@@ -181,7 +131,8 @@
       <div class="card form-card">
         <div class="card-tab"><span class="dot"></span>Get Tuesday's Release</div>
         <div class="form-body">
-          <div id="hs-form-target"></div>
+          <!-- HubSpot modern form embed (form eb3c3c36… · na2) — styled in HubSpot -->
+          <div class="hs-form-frame" data-region="na2" data-form-id="eb3c3c36-f2ce-4825-9ced-6ed81ee95284" data-portal-id="244525624"></div>
         </div>
       </div>
 
@@ -204,16 +155,7 @@
 
   </div>
 
-  <!-- ============ HubSpot form embed (Hub 244525624 · form d0190bc4… · na2) ============ -->
-  <script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
-  <script>
-    hbspt.forms.create({
-      region: "na2",
-      portalId: "244525624",
-      formId: "d0190bc4-f7b3-4916-8bde-2608ae8d4433",
-      target: "#hs-form-target",
-      cssRequired: "html,body{background:#0C3442 !important;margin:0 !important;padding:0 !important;} .hs-form,.hs-form *{color:#ffffff !important;} .hs-richtext,.hs-richtext *{color:rgba(255,255,255,.85) !important;} .hs-richtext h1,.hs-richtext h2,.hs-richtext h3{font-size:22px !important;line-height:1.12 !important;} .hs-richtext,.hs-richtext p,.hs-richtext span{font-size:13px !important;} .hs-form-field>label{display:block !important;color:#ffffff !important;font-size:12px !important;font-weight:600 !important;margin-bottom:6px !important;} .hs-form-required{color:#7FE0B0 !important;} .hs-input{width:100% !important;background:rgba(255,255,255,.08) !important;border:1px solid rgba(255,255,255,.28) !important;color:#ffffff !important;border-radius:10px !important;padding:12px 14px !important;font-size:11px !important;box-sizing:border-box !important;} .hs-input::placeholder{color:rgba(255,255,255,.45) !important;} .hs-button{background:#7FE0B0 !important;color:#0E2128 !important;border:0 !important;border-radius:12px !important;padding:13px 24px !important;font-weight:700 !important;font-size:11px !important;cursor:pointer !important;} fieldset.form-columns-1,fieldset.form-columns-2{max-width:none !important;}"
-    });
-  </script>
+  <!-- ============ HubSpot form embed (Hub 244525624 · form eb3c3c36… · na2) ============ -->
+  <script src="https://js-na2.hsforms.net/forms/embed/244525624.js" defer></script>
 </body>
 </html>
