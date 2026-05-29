@@ -41,6 +41,7 @@
     --text-soft: #5B6A6D;
     --rule:      rgba(14,33,40,0.14);
     --rule-soft: rgba(14,33,40,0.07);
+    --form-blue: #0C3442;
     --shadow:    0 1px 2px rgba(8,21,25,.04), 0 18px 40px -24px rgba(8,21,25,.22);
     --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
@@ -57,7 +58,7 @@
     font-size: 16px; line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 1280px; margin: 0 auto; padding: clamp(24px,5vw,56px) clamp(20px,4vw,48px); }
+  .wrap { max-width: 1500px; margin: 0 auto; padding: clamp(24px,5vw,56px) clamp(20px,4vw,48px); }
 
   /* masthead */
   .masthead {
@@ -77,21 +78,76 @@
   .intro p strong { color: var(--text); font-weight: 700; }
 
   /* two columns */
-  .layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.04fr); gap: clamp(20px,3vw,40px); align-items: start; margin-top: clamp(8px,2vw,18px); }
+  .layout { display: grid; grid-template-columns: minmax(0,1fr) 980px; gap: clamp(20px,3vw,40px); align-items: start; margin-top: clamp(8px,2vw,18px); }
+  .widget-col { width: 980px; max-width: 100%; margin: 0 auto; }
 
   .card { background: var(--bg-soft); border: 1px solid var(--rule-soft); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
   .card-tab { display: flex; align-items: center; gap: 9px; padding: 13px 20px; border-bottom: 1px solid var(--rule-soft); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-soft); background: rgba(255,255,255,.5); }
   .card-tab .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 3px var(--mint-50); }
 
-  .form-card .form-body { padding: clamp(22px,3vw,34px); background: #fff; }
+  .form-card .form-body { padding: clamp(22px,3vw,34px); background: transparent; }
+
+  /* ===== Left form panel — matches the widget's deep-teal "blue box" (#0C3442) ===== */
+  .form-card { background: var(--form-blue); border-color: rgba(255,255,255,.10); }
+  .form-card .card-tab {
+    background: rgba(255,255,255,.05);
+    color: rgba(255,255,255,.70);
+    border-bottom-color: rgba(255,255,255,.12);
+  }
+
+  /* HubSpot form — inverted (light) text on the dark panel */
+  #hs-form-target,
+  #hs-form-target h1, #hs-form-target h2, #hs-form-target h3, #hs-form-target h4,
+  #hs-form-target p, #hs-form-target span, #hs-form-target label,
+  #hs-form-target legend, #hs-form-target .hs-richtext,
+  #hs-form-target .hs-richtext * { color: #fff; }
+  #hs-form-target .hs-richtext { color: rgba(255,255,255,.82); }
+  #hs-form-target .hs-richtext strong { color: #fff; }
+  #hs-form-target label { font-weight: 600; }
+  #hs-form-target .hs-form-required { color: var(--mint); }
+  #hs-form-target .hs-form-field { margin-bottom: 16px; }
+  #hs-form-target .hs-input {
+    width: 100%;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.22);
+    color: #fff;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-family: var(--sans);
+    font-size: 15px;
+  }
+  #hs-form-target select.hs-input { background-color: var(--form-blue); }
+  #hs-form-target .hs-input::placeholder { color: rgba(255,255,255,.45); }
+  #hs-form-target .hs-input:focus {
+    outline: none;
+    border-color: var(--mint);
+    box-shadow: 0 0 0 3px rgba(127,224,176,.22);
+  }
+  #hs-form-target .hs-button,
+  #hs-form-target input[type="submit"] {
+    background: var(--mint);
+    color: var(--ink);
+    border: 0;
+    border-radius: 12px;
+    padding: 13px 24px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: filter .15s, transform .15s;
+  }
+  #hs-form-target .hs-button:hover,
+  #hs-form-target input[type="submit"]:hover { filter: brightness(1.05); transform: translateY(-1px); }
+  #hs-form-target .hs-error-msg,
+  #hs-form-target .hs-error-msgs label { color: #ffb3b3; }
 
   iframe.widget { display: block; width: 100%; height: 900px; border: 0; background: var(--bg-soft); }
 
   footer { margin-top: clamp(36px,5vw,64px); padding-top: 20px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--text-soft); }
   footer .mark { font-weight: 700; color: var(--ink); letter-spacing: .12em; text-transform: uppercase; font-size: 12px; }
 
-  @media (max-width: 920px) {
+  @media (max-width: 1380px) {
     .layout { grid-template-columns: 1fr; gap: 24px; }
+    .widget-col { width: 100%; }
     iframe.widget { height: 760px; }
   }
   @media (max-width: 560px) {
@@ -125,7 +181,7 @@
       </div>
 
       <!-- RIGHT — widget -->
-      <div class="card">
+      <div class="card widget-col">
         <div class="card-tab"><span class="dot"></span>The Diagnostic · 5 questions · ~2 minutes</div>
         <iframe class="widget"
                 src="https://ssi-pm-widget-new.vercel.app/pm-widget.html"
