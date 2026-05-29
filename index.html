@@ -83,9 +83,15 @@
   .card-tab { display: flex; align-items: center; gap: 9px; padding: 13px 20px; border-bottom: 1px solid var(--rule-soft); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-soft); background: rgba(255,255,255,.5); }
   .card-tab .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 3px var(--mint-50); }
 
-  .form-card .form-body { padding: clamp(22px,3vw,34px); background: transparent; }
-  .form-intro { margin: 20px 0 18px; font-size: 17px; line-height: 1.55; color: rgba(255,255,255,.82); }
+  .form-card .form-body { padding: clamp(22px,3vw,34px) 40px; background: transparent; }
+  .form-intro { margin: 20px 0 22px; font-size: 18px; line-height: 1.55; color: rgba(255,255,255,.82); }
   .form-intro strong { color: #fff; font-weight: 700; }
+  /* each .s is a sentence block; each .ln is a line that stays whole and wraps cleanly between units */
+  .form-intro .s { display: block; }
+  .form-intro .s + .s { margin-top: 1em; }
+  .form-intro .ln { display: inline-block; }
+  /* make the HubSpot form span the same width as the intro text */
+  .form-card .hs-form-frame { width: 100%; }
 
   /* ===== Left form panel — matches the widget's deep-teal "blue box" (#0C3442) ===== */
   .form-card { background: var(--form-blue); border-color: rgba(255,255,255,.10); }
@@ -133,7 +139,7 @@
       <div class="card form-card">
         <div class="card-tab"><span class="dot"></span>Get the Field Studies</div>
         <div class="form-body">
-          <p class="form-intro">Every building hits a <strong>flex point</strong> — the moment<br>a decision can make money or prevent risk.<br><br>Each Field Study breaks down one: whether the call<br>got made, what happened, and what it cost or saved.</p>
+          <p class="form-intro"><span class="s"><span class="ln">Every building hits a <strong>flex point</strong> — the moment</span> <span class="ln">a decision can make money or prevent risk.</span></span><span class="s"><span class="ln">Each Field Study breaks down one: whether the call</span> <span class="ln">got made, what happened, and what it cost or saved.</span></span></p>
           <!-- HubSpot modern form embed (form eb3c3c36… · na2) — styled in HubSpot -->
           <div class="hs-form-frame" data-region="na2" data-form-id="eb3c3c36-f2ce-4825-9ced-6ed81ee95284" data-portal-id="244525624"></div>
         </div>
