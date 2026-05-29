@@ -94,6 +94,25 @@
   .form-intro .ln { display: inline-block; }
   /* HubSpot form spans the full intro width and sits flush under the intro */
   .form-card .hs-form-frame { width: 100%; margin-top: 4px; }
+  /* Match the form to the width of the intro text above it: force HubSpot's
+     injected form + fields to fill the frame (they otherwise carry their own
+     narrower max-width). Both text and form share .form-body's 40px sides. */
+  .form-card .hs-form-frame form,
+  .form-card .hs-form-frame fieldset,
+  .form-card .hs-form-frame .hs-form,
+  .form-card .hs-form-frame .hsfc-Form,
+  .form-card .hs-form-frame .hsfc-FieldGroup {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+  .form-card .hs-form-frame input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]),
+  .form-card .hs-form-frame select,
+  .form-card .hs-form-frame textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
 
   /* ===== Left form panel — matches the widget's deep-teal "blue box" (#0C3442) ===== */
   .form-card { background: var(--form-blue); border-color: rgba(255,255,255,.10); }
